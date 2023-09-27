@@ -56,11 +56,23 @@ def decode():
     dnc.title("decode")
     dnc.geometry("500x400+300+150")
 
+    def openfile():
+        global fileopen
+        fileopen=StringVar()
+        fileopen=askopenfilename(initialdir="/Desktop",title="select file",filetypes=((".jpeg files","*jpg"),("all files","*.*")))
+
+
+    def deodee ():
+        message=stg.reveal(fileopen)
+
+        label4=Label(text=message)
+        label4.place(relx=.3,rely=.3)
+
     
-    buttoncode=Button(text="Decode",)
+    buttoncode=Button(text="Decode", command=deodee)
     buttoncode.place(relx=.4,rely=.5)
 
-    buttonselect=Button(text="selectfile")
+    buttonselect=Button(text="select file",command=openfile)
     buttonselect.place(relx=.1,rely=.3)
 
 main=Tk()
